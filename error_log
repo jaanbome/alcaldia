@@ -1,0 +1,4 @@
+[28-Dec-2017 16:59:36 America/Bogota] PHP Parse error:  syntax error, unexpected '?' in /home/arenasygravas/public_html/arenasygravas.co/ventanilla/application/views/seguimientosPqrsf.php on line 77
+[29-Dec-2017 09:12:20 America/Bogota] PHP Fatal error:  Call to undefined function enviarEmail() in /home/arenasygravas/public_html/arenasygravas.co/ventanilla/application/controllers/SeguimientoPqrsf.php on line 364
+[03-Jan-2018 12:39:04 America/Bogota] PHP Fatal error:  Call to undefined function enviarEmail() in /home/arenasygravas/public_html/arenasygravas.co/ventanilla/application/controllers/SeguimientoPqrsf.php on line 364
+[10-Jan-2018 20:49:32 America/Bogota] PHP Fatal error:  Call to undefined function enviarEmail() in /home/arenasygravas/public_html/arenasygravas.co/ventanilla/application/controllers/SeguimientoPqrsf.php on line 364

@@ -74,8 +74,9 @@ class Pqrsf extends CI_Model{
 	}
 
 	public function ListaPQRSF_POR_GENERAR_REP($COD_FUN){
-		$date = date('Y-m-d 00:00:00');
-		$date2 = date('Y-m-d 23:59:59');
+
+		$date2 = date('Y-m-d 00:00:00');
+		$date =date("Y-m-d H:i:s", strtotime("$date2 -1 Month")); // 2013-04-30
 		 $sql = "SELECT * " . 
 			   "FROM pqrsf_ent  p " .
 			   "INNER JOIN documento d ON d.cod_doc = p.cod_doc " .
@@ -114,7 +115,7 @@ class Pqrsf extends CI_Model{
 			$sql = $sql . "AND CAN_FOL_PQR = " . $CANT_FOL . " ";
 		}   
 		if(strcmp($COD_DOC, "") != 0){
-			$sql = $sql . "AND cod_doc = '" . $COD_DOC . "' ";
+			$sql = $sql . "AND d.cod_doc = '" . $COD_DOC . "' ";
 		}   
 		$query =  $this->db->query($sql);		
 		if ($query->num_rows() > 0){
@@ -202,9 +203,9 @@ class Pqrsf extends CI_Model{
 			   	   "cod_fun = '" . $COD_FUN . "', " .
 			   	   "num_ofi_ent = '" . $NUM_OFI_ENT . "', " .
 			   	   "asu_pqr = '" . $ASU_PQR . "', " .
-			   	   "obs_pqr = '" . $OBS_PQR . "' " .
-			   	   "dev = '" . $DEV . "' " .
-		   	   "WHERE num_tic_pqr = '" . $NUM_TIC_PQR . "' ";
+			   	   "obs_pqr = '" . $OBS_PQR . "' , " .
+			   	   "dev = " . $DEV .
+		   	   " WHERE num_tic_pqr = '" . $NUM_TIC_PQR . "' ";
 		$this->db->query($sql);
 	}
 

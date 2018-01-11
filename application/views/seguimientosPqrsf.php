@@ -65,15 +65,17 @@
 											<th>Quien radicó</th>
 											<th>Identificación</th>
 											<th>Asignación</th>
+											<th>Usuario</th>
 											<th>Opciones</th>
+											
 										</tr>
 									</thead>   							
 									<tbody>
 										
 											<?php
 											if($listaPqrsf != null){
-												foreach($listaPqrsf as $fila){
-													foreach($listaPqrsf as $fila){
+												foreach($listaPqrsf as $fila){ 
+												
 													if ($fila['DEV']==1) {
 														$ro="<tr style='color:red'>";	
 													} else {
@@ -87,15 +89,13 @@
 																"<td class='center'>" . $fila['NOM_PER'] . "</td>" .
 																"<td class='center'>" . $fila['NUM_DOC_PER'] . "</td>" .
 																"<td class='center'>" . $fila['NOM_FUN'] . "</td>" .
+																"<td class='center'>" . $fila['COD_FUN_ENT'] . "</td>" .
 																"<td class='center'> " .
 																	"<a class='btn btn-info' href='#'> ".
 																		"<i class='icon-zoom-in icon-white'></i> ".
 																		"Seguimiento".
 																	"</a> ".
-																	"<a class='btn btn-success' href='#'> ".
-																		
-																		"Enviar email".
-																	"</a> ".
+																	
 																"</td>" . 
 															"</tr>";
 														echo $fila;

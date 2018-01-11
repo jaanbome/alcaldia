@@ -5,7 +5,7 @@ class Login extends CI_Controller{
 	public function __construct() {
         parent::__construct();
         if ($this->session->userdata('COD_FUN') != null) {
-            redirect('radicarPqrsfNor', 'refresh');
+            redirect('pqrsfWeb', 'refresh');
         }
         else{
             $this->load->Model('funcionario');

@@ -63,30 +63,41 @@
 											<th>Asunto</th>
 											<th>Quien radicó</th>
 											<th>Identificación</th>
-											<th>Opciones</th>
+											<?php if ($this->session->userdata('COD_ROL') == 'VEN') { ?>
+                                               <th>Usuario</th>
+                                            <?php    } else {     ?>
+                                               <th>Usuario</th>
+                                               <th>Opciones</th>
+                                            <?php } ?>
 										</tr>
 									</thead>   							
 									<tbody>
 										
 											<?php
 											if($listaPqrsf != null){
-												foreach($listaPqrsf as $fila){
-													$fila = "<tr>" .
-																"<td class='center'>" . $fila['FEC_RAC_PQR'] . "</td>" .
-																"<td class='center'>" . $fila['NUM_TIC_PQR'] . "</td>" .
-																"<td class='center'>" . $fila['NOM_DOC'] . "</td>" .
-																"<td class='center'>" . $fila['ASU_PQR'] . "</td>" .
-																"<td class='center'>" . $fila['NOM_PER'] . "</td>" .
-																"<td class='center'>" . $fila['NUM_DOC_PER'] . "</td>" .
-																"<td class='center'> " .
-																	"<a class='btn btn-success' href='#'> ".
-																		"<i class='icon-zoom-in icon-white'></i> ".
-																		"Asignar ".
-																	"</a> ".
-																"</td>" . 
-															"</tr>";
-														echo $fila;
-												}
+											//echo "<pre>";	print_r($listaPqrsf); 	echo "<pre>";
+												foreach($listaPqrsf as $fila){ ?>
+													<tr>
+																<td class='center'>  <?php echo $fila['FEC_RAC_PQR']; ?></td>
+																 <td class='center'> <?php echo $fila['NUM_TIC_PQR']; ?></td>
+																 <td class='center'> <?php echo $fila['NOM_DOC']; ?></td>
+																 <td class='center'> <?php echo $fila['ASU_PQR']; ?> </td>
+																<td class='center'>  <?php echo $fila['NOM_PER']; ?> </td>
+																 <td class='center'> <?php echo $fila['NUM_DOC_PER'] ; ?></td>
+																 <?php if ($this->session->userdata('COD_ROL') == 'VEN') { ?>
+                                                                    <td class='center'> <?php echo $fila['COD_FUN_ENT'] ; ?></td>
+                                                                 <?php    } else {     ?>
+                                                                   <td class='center'> <?php echo $fila['COD_FUN_ENT'] ; ?></td>
+                                                                    <td class='center'> 
+																	<a class='btn btn-success' href='#'> 
+																		<i class='icon-zoom-in icon-white'></i> Asignar 
+																	</a> 
+																   </td>
+                                                                 <?php } ?>
+																
+															</tr>
+														
+											<?php	}
 											}
 											?>
 									</tbody>
